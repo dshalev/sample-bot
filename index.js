@@ -30,6 +30,8 @@ app.post('/webhook', function (req, res) {
     		if (!kittenMessage(event.sender.id, event.message.text)) {
         		sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
     		}		
+		} else if (event.postback) {
+    		sendMessage(event.sender.id, {text: "We are glad you like this"});
 		}
     }
     res.sendStatus(200);
